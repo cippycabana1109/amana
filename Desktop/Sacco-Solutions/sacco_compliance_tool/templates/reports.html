@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+{% block title %}Reports - SACCO Guard{% endblock %}
+{% block content %}
+<div class="min-h-screen">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-100 z-50 shadow-sm">
+        <div class="p-6 border-b border-gray-100">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-heritage-700 rounded-xl flex items-center justify-center shadow-lg">
+                    <i data-lucide="shield-check" class="w-7 h-7 text-gold-400"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-heritage-700 text-lg">SACCO Guard</h1>
+                    <p class="text-xs text-gray-500">Fraud Detection</p>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="mt-6 px-4">
+            <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Main Menu</p>
+            <a href="{{ url_for('dashboard_view') }}" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg mb-2">
+                <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                <span class="font-medium">Dashboard</span>
+            </a>
+            <a href="{{ url_for('upload_page') }}" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg mb-2">
+                <i data-lucide="upload" class="w-5 h-5"></i>
+                <span class="font-medium">Upload Data</span>
+            </a>
+            <a href="{{ url_for('reports_page') }}" class="sidebar-link active flex items-center gap-3 px-4 py-3 text-heritage-700 rounded-lg mb-2">
+                <i data-lucide="file-text" class="w-5 h-5"></i>
+                <span class="font-medium">Reports</span>
+            </a>
+        </nav>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-100 bg-heritage-50">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-heritage-700 rounded-full flex items-center justify-center">
+                    <i data-lucide="user" class="w-5 h-5 text-gold-400"></i>
+                </div>
+                <div>
+                    <p class="font-medium text-heritage-700">{{ session.get('username', 'User') }}</p>
+                    <p class="text-xs text-gray-500">Compliance Officer</p>
+                </div>
+            </div>
+            <a href="{{ url_for('logout') }}" class="flex items-center gap-2 text-red-600 hover:text-red-700 text-sm font-medium">
+                <i data-lucide="log-out" class="w-4 h-4"></i>
+                Sign Out
+            </a>
+        </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="ml-64 p-8 bg-gray-50 min-h-screen">
+        <div class="mb-8">
+            <h1 class="text-2xl font-bold text-heritage-700">Reports & Export</h1>
+            <p class="text-gray-500">Download compliance reports in various formats</p>
+        </div>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="mb-6 p-4 rounded-lg gold-accent {% if category == 'error' %}bg-red-100 text-red-700{% else %}bg-heritage-100 text-heritage-700{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- PDF Report -->
+            <div class="bg-white rounded-xl card-shadow p-6 card-shadow-hover transition-all duration-300">
+                <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-4">
+                    <i data-lucide="file-text" class="w-8 h-8 text-red-600"></i>
+                </div>
+                <h3 class="text-lg font-semibold text-heritage-700 mb-2">PDF Report</h3>
+                <p class="text-gray-500 text-sm mb-4">Download a formatted report for compliance records</p>
+                <a href="{{ url_for('download_pdf') }}" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition shadow-md">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    Download PDF
+                </a>
+            </div>
+            
+            <!-- CSV Export -->
+            <div class="bg-white rounded-xl card-shadow p-6 card-shadow-hover transition-all duration-300">
+                <div class="w-16 h-16 bg-heritage-100 rounded-2xl flex items-center justify-center mb-4">
+                    <i data-lucide="table" class="w-8 h-8 text-heritage-700"></i>
+                </div>
+                <h3 class="text-lg font-semibold text-heritage-700 mb-2">CSV Export</h3>
+                <p class="text-gray-500 text-sm mb-4">Download raw data for analysis in Excel</p>
+                <a href="{{ url_for('download_csv') }}" class="inline-flex items-center gap-2 btn-primary text-white px-4 py-2 rounded-lg shadow-md">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    Download CSV
+                </a>
+            </div>
+            
+            <!-- Email Report -->
+            <div class="bg-white rounded-xl card-shadow p-6 card-shadow-hover transition-all duration-300">
+                <div class="w-16 h-16 bg-gold-100 rounded-2xl flex items-center justify-center mb-4">
+                    <i data-lucide="mail" class="w-8 h-8 text-gold-600"></i>
+                </div>
+                <h3 class="text-lg font-semibold text-heritage-700 mb-2">Email Report</h3>
+                <p class="text-gray-500 text-sm mb-4">Send the fraud report to compliance officers</p>
+                <button onclick="openEmailModal()" class="inline-flex items-center gap-2 btn-gold px-4 py-2 rounded-lg shadow-md">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    Send Email
+                </button>
+            </div>
+        </div>
+        
+        <!-- Report Summary -->
+        <div class="mt-8 bg-white rounded-xl card-shadow p-8">
+            <h3 class="text-lg font-semibold text-heritage-700 mb-6 flex items-center gap-2">
+                <i data-lucide="bar-chart-3" class="w-5 h-5 text-gold-500"></i>
+                Latest Report Summary
+            </h3>
+            
+            {% if stats.total > 0 %}
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-heritage-50 rounded-xl border border-heritage-100">
+                    <p class="text-4xl font-bold text-heritage-700">{{ stats.total }}</p>
+                    <p class="text-gray-500 text-sm mt-2">Total Flagged</p>
+                </div>
+                <div class="text-center p-6 bg-red-50 rounded-xl border border-red-100">
+                    <p class="text-4xl font-bold text-red-600">{{ stats.high_risk }}</p>
+                    <p class="text-gray-500 text-sm mt-2">High Risk</p>
+                </div>
+                <div class="text-center p-6 bg-gold-50 rounded-xl border border-gold-100">
+                    <p class="text-2xl font-bold text-gold-600">KES {{ "{:,.0f}".format(stats.total_amount) }}</p>
+                    <p class="text-gray-500 text-sm mt-2">Total Amount</p>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-xl border border-gray-200">
+                    <p class="text-2xl font-bold text-heritage-700">{{ stats.last_updated }}</p>
+                    <p class="text-gray-500 text-sm mt-2">Last Updated</p>
+                </div>
+            </div>
+            {% else %}
+            <div class="text-center py-12">
+                <div class="w-20 h-20 bg-heritage-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="file-x" class="w-10 h-10 text-heritage-400"></i>
+                </div>
+                <h4 class="text-heritage-700 font-semibold text-lg">No report data available yet</h4>
+                <p class="text-gray-500 mt-2">Upload transaction data to generate your first report</p>
+                <a href="{{ url_for('upload_page') }}" class="inline-flex items-center gap-2 mt-4 btn-primary text-white px-6 py-3 rounded-lg font-medium">
+                    <i data-lucide="upload" class="w-4 h-4"></i>
+                    Upload Data
+                </a>
+            </div>
+            {% endif %}
+        </div>
+        
+        <!-- Compliance Tips -->
+        <div class="mt-8 bg-gradient-to-br from-heritage-700 to-heritage-800 rounded-xl p-8 text-white">
+            <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="lightbulb" class="w-6 h-6 text-gold-400"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Compliance Best Practices</h3>
+                    <ul class="text-heritage-100 text-sm space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-gold-400"></i>
+                            Review high-risk transactions within 24 hours
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-gold-400"></i>
+                            Document all investigation findings
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-gold-400"></i>
+                            Report suspicious activity to relevant authorities
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-gold-400"></i>
+                            Retrain the model monthly with new data
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Email Modal -->
+<div id="emailModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-2xl p-8 w-full max-w-md mx-4 shadow-2xl">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-gold-100 rounded-xl flex items-center justify-center">
+                <i data-lucide="mail" class="w-6 h-6 text-gold-600"></i>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold text-heritage-700">Send Report via Email</h3>
+                <p class="text-sm text-gray-500">Deliver the compliance report directly</p>
+            </div>
+        </div>
+        <form action="{{ url_for('send_email_report') }}" method="POST" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Recipient Email</label>
+                <input type="email" name="email" required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-heritage-500 focus:border-heritage-500 outline-none"
+                    placeholder="compliance@sacco.co.ke">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                <input type="text" name="subject" value="SACCO Guard - Fraud Compliance Report"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-heritage-500 focus:border-heritage-500 outline-none">
+            </div>
+            <div class="flex gap-4 pt-2">
+                <button type="button" onclick="closeEmailModal()" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 rounded-lg transition">
+                    Cancel
+                </button>
+                <button type="submit" class="flex-1 btn-primary text-white font-semibold py-3 rounded-lg shadow-lg">
+                    Send Report
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function openEmailModal() {
+    document.getElementById('emailModal').classList.remove('hidden');
+    document.getElementById('emailModal').classList.add('flex');
+}
+function closeEmailModal() {
+    document.getElementById('emailModal').classList.add('hidden');
+    document.getElementById('emailModal').classList.remove('flex');
+}
+</script>
+{% endblock %}

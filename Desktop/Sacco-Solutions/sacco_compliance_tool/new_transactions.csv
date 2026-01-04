@@ -1,0 +1,6 @@
+transaction_id,amount,date,member_id,type,member_balance,time_of_day
+101,62000,2026-01-04,123,withdrawal,38000,13:10
+102,500,2026-01-04,131,deposit,45500,08:45
+103,9800,2026-01-04,129,transfer,20200,19:55
+104,250000,2026-01-04,140,withdrawal,260000,23:05
+105,3000,2026-01-04,124,payment,247000,10:25

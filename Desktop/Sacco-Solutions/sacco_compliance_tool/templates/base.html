@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dashboard - Vimbatech{% endblock %}</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'heritage': {
+                            50: '#f0f7f4',
+                            100: '#d9ebe2',
+                            200: '#b5d7c7',
+                            300: '#85bca5',
+                            400: '#569c80',
+                            500: '#3a8066',
+                            600: '#2a6651',
+                            700: '#1E4F3A',
+                            800: '#1a4232',
+                            900: '#16372a',
+                        },
+                        'gold': {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#F2B705',
+                            500: '#d4a005',
+                            600: '#b38b04',
+                            700: '#8a6c03',
+                            800: '#725a03',
+                            900: '#5f4a02',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1E4F3A 0%, #2a6651 50%, #1a4232 100%);
+        }
+        .gradient-gold {
+            background: linear-gradient(135deg, #F2B705 0%, #d4a005 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 40px rgba(30, 79, 58, 0.1);
+        }
+        .card-shadow-hover:hover {
+            box-shadow: 0 20px 60px rgba(30, 79, 58, 0.15);
+            transform: translateY(-2px);
+        }
+        .table-row-hover:hover {
+            background-color: #f0f7f4;
+        }
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .high-risk { background-color: #fee2e2; color: #dc2626; }
+        .normal { background-color: #d9ebe2; color: #1E4F3A; }
+        .medium-risk { background-color: #fef3c7; color: #b38b04; }
+        .btn-primary {
+            background: linear-gradient(135deg, #1E4F3A 0%, #2a6651 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #16372a 0%, #1E4F3A 100%);
+            transform: translateY(-1px);
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, #F2B705 0%, #d4a005 100%);
+            color: #1E4F3A;
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background: linear-gradient(135deg, #d4a005 0%, #b38b04 100%);
+            transform: translateY(-1px);
+        }
+        .sidebar-link {
+            transition: all 0.2s ease;
+        }
+        .sidebar-link:hover {
+            background-color: #f0f7f4;
+        }
+        .sidebar-link.active {
+            background-color: #d9ebe2;
+            color: #1E4F3A;
+            border-left: 3px solid #F2B705;
+        }
+        .gold-accent {
+            border-left: 4px solid #F2B705;
+        }
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    {% block content %}{% endblock %}
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

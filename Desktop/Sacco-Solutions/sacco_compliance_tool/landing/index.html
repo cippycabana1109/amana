@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SACCO Guard - AI-Powered Fraud Detection for Kenyan SACCOs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'heritage': {
+                            50: '#f0f7f4',
+                            100: '#d9ebe2',
+                            200: '#b5d7c7',
+                            300: '#85bca5',
+                            400: '#569c80',
+                            500: '#3a8066',
+                            600: '#2a6651',
+                            700: '#1E4F3A',
+                            800: '#1a4232',
+                            900: '#16372a',
+                        },
+                        'gold': {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#F2B705',
+                            500: '#d4a005',
+                            600: '#b38b04',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #1E4F3A 0%, #2a6651 50%, #16372a 100%); }
+        .gold-gradient { background: linear-gradient(135deg, #F2B705 0%, #d4a005 100%); }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(30, 79, 58, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-heritage-700 rounded-xl flex items-center justify-center">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-gold-400"></i>
+                    </div>
+                    <span class="text-xl font-bold text-heritage-700">SACCO Guard</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#features" class="text-gray-600 hover:text-heritage-700 transition">Features</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-heritage-700 transition">Pricing</a>
+                    <a href="#contact" class="text-gray-600 hover:text-heritage-700 transition">Contact</a>
+                    <a href="/login" class="bg-heritage-700 hover:bg-heritage-800 text-white px-6 py-2 rounded-lg font-medium transition">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg hero-pattern pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute top-20 right-20 w-96 h-96 bg-gold-400 rounded-full blur-3xl opacity-20"></div>
+        <div class="absolute bottom-20 left-20 w-64 h-64 bg-heritage-300 rounded-full blur-3xl opacity-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-2 rounded-full text-sm mb-6">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-gold-400"></i>
+                        AI-Powered Fraud Detection
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                        Protect Your SACCO From 
+                        <span class="text-gold-400">Fraud</span>
+                    </h1>
+                    <p class="text-xl text-heritage-100 mb-8 leading-relaxed">
+                        Advanced machine learning detects suspicious transactions before they become losses. Built specifically for Kenyan SACCOs.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="gold-gradient text-heritage-800 px-8 py-4 rounded-xl font-semibold text-lg flex items-center justify-center gap-2 hover:opacity-90 transition shadow-lg">
+                            <i data-lucide="rocket" class="w-5 h-5"></i>
+                            Get Started Free
+                        </a>
+                        <a href="#demo" class="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-semibold text-lg flex items-center justify-center gap-2 transition border border-white/20">
+                            <i data-lucide="play-circle" class="w-5 h-5"></i>
+                            Watch Demo
+                        </a>
+                    </div>
+                    
+                    <div class="mt-12 flex items-center gap-8">
+                        <div>
+                            <p class="text-3xl font-bold text-white">99.2%</p>
+                            <p class="text-heritage-200 text-sm">Detection Accuracy</p>
+                        </div>
+                        <div class="w-px h-12 bg-white/20"></div>
+                        <div>
+                            <p class="text-3xl font-bold text-white">24/7</p>
+                            <p class="text-heritage-200 text-sm">Real-time Monitoring</p>
+                        </div>
+                        <div class="w-px h-12 bg-white/20"></div>
+                        <div>
+                            <p class="text-3xl font-bold text-white">KES 0</p>
+                            <p class="text-heritage-200 text-sm">Setup Fee</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="bg-white rounded-2xl shadow-2xl p-6 float-animation">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-red-50 rounded-xl border-l-4 border-red-500">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="alert-triangle" class="w-6 h-6 text-red-600"></i>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">High Risk Detected</p>
+                                        <p class="text-sm text-gray-500">TXN-4521 • KES 500,000</p>
+                                    </div>
+                                </div>
+                                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-semibold">FLAGGED</span>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-heritage-50 rounded-xl border-l-4 border-heritage-500">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-heritage-600"></i>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Transaction Verified</p>
+                                        <p class="text-sm text-gray-500">TXN-4522 • KES 15,000</p>
+                                    </div>
+                                </div>
+                                <span class="px-3 py-1 bg-heritage-100 text-heritage-700 rounded-full text-xs font-semibold">SAFE</span>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-gold-50 rounded-xl border-l-4 border-gold-400">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="eye" class="w-6 h-6 text-gold-600"></i>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Under Review</p>
+                                        <p class="text-sm text-gray-500">TXN-4523 • KES 85,000</p>
+                                    </div>
+                                </div>
+                                <span class="px-3 py-1 bg-gold-100 text-gold-700 rounded-full text-xs font-semibold">REVIEW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-heritage-700 mb-4">
+                    SACCO Fraud is a Growing Problem
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Kenyan SACCOs lose millions every year to fraud. Most don't have the tools to detect it early.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center stat-card transition-all duration-300">
+                    <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="trending-down" class="w-8 h-8 text-red-600"></i>
+                    </div>
+                    <p class="text-4xl font-bold text-red-600 mb-2">KES 2B+</p>
+                    <p class="text-gray-600">Lost to SACCO fraud annually in Kenya</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center stat-card transition-all duration-300">
+                    <div class="w-16 h-16 bg-gold-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="clock" class="w-8 h-8 text-gold-600"></i>
+                    </div>
+                    <p class="text-4xl font-bold text-gold-600 mb-2">18 Months</p>
+                    <p class="text-gray-600">Average time to detect fraud manually</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center stat-card transition-all duration-300">
+                    <div class="w-16 h-16 bg-heritage-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="users" class="w-8 h-8 text-heritage-600"></i>
+                    </div>
+                    <p class="text-4xl font-bold text-heritage-600 mb-2">14,000+</p>
+                    <p class="text-gray-600">Registered SACCOs in Kenya</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-heritage-700 mb-4">
+                    Everything You Need to Fight Fraud
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Powerful features designed specifically for SACCO compliance officers
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl border border-gray-200 hover:border-heritage-300 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-heritage-100 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="brain" class="w-7 h-7 text-heritage-700"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-heritage-700 mb-3">AI-Powered Detection</h3>
+                    <p class="text-gray-600">Machine learning algorithms trained to detect anomalies in SACCO transactions patterns.</p>
+                </div>
+                
+                <div class="p-8 rounded-2xl border border-gray-200 hover:border-heritage-300 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-gold-100 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="zap" class="w-7 h-7 text-gold-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-heritage-700 mb-3">Real-time Alerts</h3>
+                    <p class="text-gray-600">Get instant notifications when suspicious activity is detected. Stop fraud before it happens.</p>
+                </div>
+                
+                <div class="p-8 rounded-2xl border border-gray-200 hover:border-heritage-300 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-heritage-100 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="file-text" class="w-7 h-7 text-heritage-700"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-heritage-700 mb-3">Compliance Reports</h3>
+                    <p class="text-gray-600">Generate SASRA-ready compliance reports with one click. PDF and CSV exports included.</p>
+                </div>
+                
+                <div class="p-8 rounded-2xl border border-gray-200 hover:border-heritage-300 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-gold-100 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="lock" class="w-7 h-7 text-gold-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-heritage-700 mb-3">Data Privacy</h3>
+                    <p class="text-gray-600">Member IDs are hashed for anonymity. Your data stays secure and compliant with regulations.</p>
+                </div>
+                
+                <div class="p-8 rounded-2xl border border-gray-200 hover:border-heritage-300 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-heritage-100 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="bar-chart-3" class="w-7 h-7 text-heritage-700"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-heritage-700 mb-3">Visual Dashboard</h3>
+                    <p class="text-gray-600">Beautiful charts and analytics to understand fraud patterns at a glance.</p>
+                </div>
+                
+                <div class="p-8 rounded-2xl border border-gray-200 hover:border-heritage-300 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-gold-100 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="upload-cloud" class="w-7 h-7 text-gold-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-heritage-700 mb-3">Easy Data Upload</h3>
+                    <p class="text-gray-600">Simply upload your CSV transaction files. No complex integrations required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-heritage-700 mb-4">
+                    Simple, Transparent Pricing
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Affordable plans for SACCOs of all sizes
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Starter -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <h3 class="text-xl font-semibold text-heritage-700 mb-2">Starter</h3>
+                    <p class="text-gray-500 mb-6">For small SACCOs</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-heritage-700">KES 10,000</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-gray-600">
+                            <i data-lucide="check" class="w-5 h-5 text-heritage-600"></i>
+                            Up to 5,000 transactions/month
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-600">
+                            <i data-lucide="check" class="w-5 h-5 text-heritage-600"></i>
+                            Basic fraud detection
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-600">
+                            <i data-lucide="check" class="w-5 h-5 text-heritage-600"></i>
+                            Email reports
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-600">
+                            <i data-lucide="check" class="w-5 h-5 text-heritage-600"></i>
+                            Email support
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full text-center bg-heritage-100 hover:bg-heritage-200 text-heritage-700 py-3 rounded-xl font-semibold transition">
+                        Get Started
+                    </a>
+                </div>
+                
+                <!-- Professional -->
+                <div class="bg-heritage-700 p-8 rounded-2xl shadow-xl relative transform scale-105">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-gold-400 text-heritage-800 px-4 py-1 rounded-full text-sm font-semibold">POPULAR</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Professional</h3>
+                    <p class="text-heritage-200 mb-6">For growing SACCOs</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-white">KES 25,000</span>
+                        <span class="text-heritage-200">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-heritage-100">
+                            <i data-lucide="check" class="w-5 h-5 text-gold-400"></i>
+                            Up to 25,000 transactions/month
+                        </li>
+                        <li class="flex items-center gap-3 text-heritage-100">
+                            <i data-lucide="check" class="w-5 h-5 text-gold-400"></i>
+                            Advanced AI detection
+                        </li>
+                        <li class="flex items-center gap-3 text-heritage-100">
+                            <i data-lucide="check" class="w-5 h-5 text-gold-400"></i>
+                            SMS & Email alerts
+                        </li>
+                        <li class="flex items-center gap-3 text-heritage-100">
+                            <i data-lucide="check" class="w-5 h-5 text-gold-400"></i>
+                            Priority support
+                        </li>
+                        <li class="flex items-center gap-3 text-heritage-100">
+                            <i data-lucide="check" class="w-5 h-5 text-gold-400"></i>
+                            Custom training
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full text-center gold-gradient text-heritage-800 py-3 rounded-xl font-semibold hover:opacity-90 transition">
+                        Get Started
+                    </a>
+                </div>
+                
+                <!-- Enterprise -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <h3 class="text-xl font-semibold text-heritage-700 mb-2">Enterprise</h3>
+                    <p class="text-gray-500 mb-6">For large SACCOs</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-heritage-700">Custom</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-gray-600">
+                            <i data-lucide="check" class="w-5 h-5 text-heritage-600"></i>
+                            Unlimited transactions
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-600">
+                            <i data-lucide="check" class="w-5 h-5 text-heritage-600"></i>
+                            Custom AI model training
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-600">
+                            <i data-lucide="check" class="w-5 h-5 text-heritage-600"></i>
+                            API integration
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-600">
+                            <i data-lucide="check" class="w-5 h-5 text-heritage-600"></i>
+                            Dedicated account manager
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-600">
+                            <i data-lucide="check" class="w-5 h-5 text-heritage-600"></i>
+                            On-premise deployment
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full text-center bg-heritage-100 hover:bg-heritage-200 text-heritage-700 py-3 rounded-xl font-semibold transition">
+                        Contact Sales
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-20 gradient-bg hero-pattern relative">
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Ready to Protect Your SACCO?
+            </h2>
+            <p class="text-xl text-heritage-100 mb-8">
+                Start your free 30-day trial today. No credit card required.
+            </p>
+            
+            <form class="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-2xl">
+                <h3 class="text-xl font-semibold text-heritage-700 mb-6">Request a Demo</h3>
+                <div class="space-y-4">
+                    <input type="text" placeholder="SACCO Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-heritage-500 focus:border-heritage-500 outline-none">
+                    <input type="text" placeholder="Your Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-heritage-500 focus:border-heritage-500 outline-none">
+                    <input type="email" placeholder="Email Address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-heritage-500 focus:border-heritage-500 outline-none">
+                    <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-heritage-500 focus:border-heritage-500 outline-none">
+                    <button type="submit" class="w-full gold-gradient text-heritage-800 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition shadow-lg">
+                        Request Free Demo
+                    </button>
+                </div>
+            </form>
+            
+            <div class="mt-12 flex items-center justify-center gap-8 text-heritage-200">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                    <span>+254 700 000 000</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    <span>hello@saccoguard.co.ke</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-heritage-900 text-heritage-200 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-heritage-700 rounded-xl flex items-center justify-center">
+                            <i data-lucide="shield-check" class="w-6 h-6 text-gold-400"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white">SACCO Guard</span>
+                    </div>
+                    <p class="text-sm">AI-powered fraud detection built for Kenyan SACCOs.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#features" class="hover:text-white transition">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition">API Docs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-heritage-800 pt-8 text-center text-sm">
+                <p>&copy; 2026 SACCO Guard. All rights reserved. Made in Kenya 🇰🇪</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

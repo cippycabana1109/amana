@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SACCO Guard - Pitch Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'heritage': { 700: '#1E4F3A', 800: '#1a4232', 100: '#d9ebe2', 50: '#f0f7f4' },
+                        'gold': { 400: '#F2B705', 100: '#fef3c7' }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .slide { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px; }
+        @media print {
+            .slide { page-break-after: always; min-height: 100vh; }
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Slide 1: Title -->
+    <section class="slide bg-gradient-to-br from-[#1E4F3A] to-[#16372a]">
+        <div class="text-center">
+            <div class="w-24 h-24 bg-white/10 rounded-3xl flex items-center justify-center mx-auto mb-8">
+                <svg class="w-14 h-14 text-[#F2B705]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+            </div>
+            <h1 class="text-6xl font-bold text-white mb-4">SACCO Guard</h1>
+            <p class="text-2xl text-[#F2B705] mb-8">AI-Powered Fraud Detection for Kenyan SACCOs</p>
+            <div class="inline-flex items-center gap-2 bg-white/10 text-white px-6 py-3 rounded-full">
+                <span>Investor Pitch Deck 2026</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: The Problem -->
+    <section class="slide bg-white">
+        <div class="max-w-5xl">
+            <p class="text-[#F2B705] font-semibold mb-4">THE PROBLEM</p>
+            <h2 class="text-5xl font-bold text-[#1E4F3A] mb-12">SACCO Fraud Costs Kenya Billions</h2>
+            
+            <div class="grid grid-cols-3 gap-8 mb-12">
+                <div class="text-center p-8 bg-red-50 rounded-2xl">
+                    <p class="text-5xl font-bold text-red-600 mb-2">KES 2B+</p>
+                    <p class="text-gray-600">Lost annually to SACCO fraud</p>
+                </div>
+                <div class="text-center p-8 bg-[#fef3c7] rounded-2xl">
+                    <p class="text-5xl font-bold text-[#b38b04] mb-2">18 Months</p>
+                    <p class="text-gray-600">Average detection time</p>
+                </div>
+                <div class="text-center p-8 bg-[#d9ebe2] rounded-2xl">
+                    <p class="text-5xl font-bold text-[#1E4F3A] mb-2">14,000+</p>
+                    <p class="text-gray-600">SACCOs in Kenya</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-100 p-8 rounded-2xl">
+                <h3 class="font-semibold text-xl text-[#1E4F3A] mb-4">Current Challenges:</h3>
+                <ul class="space-y-3 text-lg text-gray-700">
+                    <li>✗ Manual audits are slow and expensive</li>
+                    <li>✗ Fraud detected only after significant losses</li>
+                    <li>✗ No affordable tech solutions for small SACCOs</li>
+                    <li>✗ Compliance reporting is tedious</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: The Solution -->
+    <section class="slide bg-[#f0f7f4]">
+        <div class="max-w-5xl">
+            <p class="text-[#F2B705] font-semibold mb-4">THE SOLUTION</p>
+            <h2 class="text-5xl font-bold text-[#1E4F3A] mb-12">AI That Catches Fraud in Real-Time</h2>
+            
+            <div class="grid grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="w-16 h-16 bg-[#1E4F3A] rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-[#F2B705]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-[#1E4F3A] mb-3">Machine Learning Detection</h3>
+                    <p class="text-gray-600">IsolationForest algorithm trained on SACCO transaction patterns to identify anomalies instantly.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="w-16 h-16 bg-[#F2B705] rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-[#1E4F3A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-[#1E4F3A] mb-3">Instant Alerts</h3>
+                    <p class="text-gray-600">Real-time notifications when suspicious transactions are detected. Stop fraud before it happens.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="w-16 h-16 bg-[#1E4F3A] rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-[#F2B705]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-[#1E4F3A] mb-3">Compliance Reports</h3>
+                    <p class="text-gray-600">One-click SASRA-ready reports. PDF and CSV exports for auditors and regulators.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="w-16 h-16 bg-[#F2B705] rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-[#1E4F3A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-[#1E4F3A] mb-3">Data Privacy</h3>
+                    <p class="text-gray-600">Member IDs are hashed. Data stays secure and compliant with privacy regulations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Market Opportunity -->
+    <section class="slide bg-white">
+        <div class="max-w-5xl">
+            <p class="text-[#F2B705] font-semibold mb-4">MARKET OPPORTUNITY</p>
+            <h2 class="text-5xl font-bold text-[#1E4F3A] mb-12">Massive Underserved Market</h2>
+            
+            <div class="grid grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold text-[#1E4F3A] mb-6">Total Addressable Market</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-[#d9ebe2] rounded-xl">
+                            <span class="font-medium">Kenya SACCOs</span>
+                            <span class="font-bold text-[#1E4F3A]">14,000+</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-[#fef3c7] rounded-xl">
+                            <span class="font-medium">East Africa SACCOs</span>
+                            <span class="font-bold text-[#b38b04]">25,000+</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-[#d9ebe2] rounded-xl">
+                            <span class="font-medium">Africa SACCOs</span>
+                            <span class="font-bold text-[#1E4F3A]">100,000+</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold text-[#1E4F3A] mb-6">Revenue Potential</h3>
+                    <div class="bg-gradient-to-br from-[#1E4F3A] to-[#16372a] p-8 rounded-2xl text-white">
+                        <p class="text-lg mb-4">If we capture just 1% of Kenyan SACCOs:</p>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span>140 SACCOs × KES 20,000/month</span>
+                            </div>
+                            <div class="border-t border-white/20 pt-3">
+                                <p class="text-3xl font-bold text-[#F2B705]">KES 33.6M / year</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Business Model -->
+    <section class="slide bg-[#f0f7f4]">
+        <div class="max-w-5xl">
+            <p class="text-[#F2B705] font-semibold mb-4">BUSINESS MODEL</p>
+            <h2 class="text-5xl font-bold text-[#1E4F3A] mb-12">SaaS Subscription Model</h2>
+            
+            <div class="grid grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <h3 class="text-xl font-semibold text-[#1E4F3A] mb-2">Starter</h3>
+                    <p class="text-4xl font-bold text-[#1E4F3A] mb-4">KES 10K<span class="text-lg font-normal text-gray-500">/mo</span></p>
+                    <ul class="text-left text-gray-600 space-y-2">
+                        <li>• 5,000 transactions</li>
+                        <li>• Basic detection</li>
+                        <li>• Email reports</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-[#1E4F3A] p-8 rounded-2xl shadow-lg text-center transform scale-105">
+                    <div class="bg-[#F2B705] text-[#1E4F3A] px-3 py-1 rounded-full text-sm font-semibold inline-block mb-4">POPULAR</div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Professional</h3>
+                    <p class="text-4xl font-bold text-white mb-4">KES 25K<span class="text-lg font-normal text-white/70">/mo</span></p>
+                    <ul class="text-left text-white/90 space-y-2">
+                        <li>• 25,000 transactions</li>
+                        <li>• Advanced AI</li>
+                        <li>• SMS alerts</li>
+                        <li>• Priority support</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <h3 class="text-xl font-semibold text-[#1E4F3A] mb-2">Enterprise</h3>
+                    <p class="text-4xl font-bold text-[#1E4F3A] mb-4">Custom</p>
+                    <ul class="text-left text-gray-600 space-y-2">
+                        <li>• Unlimited transactions</li>
+                        <li>• Custom AI training</li>
+                        <li>• API access</li>
+                        <li>• On-premise option</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Traction & Roadmap -->
+    <section class="slide bg-white">
+        <div class="max-w-5xl">
+            <p class="text-[#F2B705] font-semibold mb-4">TRACTION & ROADMAP</p>
+            <h2 class="text-5xl font-bold text-[#1E4F3A] mb-12">Where We Are & Where We're Going</h2>
+            
+            <div class="grid grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold text-[#1E4F3A] mb-6">✅ Completed</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="w-8 h-8 bg-[#d9ebe2] rounded-full flex items-center justify-center text-[#1E4F3A] font-bold">✓</span>
+                            <div>
+                                <p class="font-semibold text-[#1E4F3A]">MVP Built</p>
+                                <p class="text-gray-600">Fully functional fraud detection system</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-8 h-8 bg-[#d9ebe2] rounded-full flex items-center justify-center text-[#1E4F3A] font-bold">✓</span>
+                            <div>
+                                <p class="font-semibold text-[#1E4F3A]">AI Model Trained</p>
+                                <p class="text-gray-600">IsolationForest algorithm ready</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-8 h-8 bg-[#d9ebe2] rounded-full flex items-center justify-center text-[#1E4F3A] font-bold">✓</span>
+                            <div>
+                                <p class="font-semibold text-[#1E4F3A]">Dashboard & Reports</p>
+                                <p class="text-gray-600">Beautiful UI with PDF/CSV exports</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold text-[#1E4F3A] mb-6">🎯 Next Steps</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="w-8 h-8 bg-[#fef3c7] rounded-full flex items-center justify-center text-[#b38b04] font-bold">1</span>
+                            <div>
+                                <p class="font-semibold text-[#1E4F3A]">Q1 2026: Pilot Program</p>
+                                <p class="text-gray-600">Onboard 5 SACCOs for beta testing</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-8 h-8 bg-[#fef3c7] rounded-full flex items-center justify-center text-[#b38b04] font-bold">2</span>
+                            <div>
+                                <p class="font-semibold text-[#1E4F3A]">Q2 2026: Launch</p>
+                                <p class="text-gray-600">Public launch, target 50 SACCOs</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-8 h-8 bg-[#fef3c7] rounded-full flex items-center justify-center text-[#b38b04] font-bold">3</span>
+                            <div>
+                                <p class="font-semibold text-[#1E4F3A]">Q4 2026: Scale</p>
+                                <p class="text-gray-600">200+ SACCOs, expand to East Africa</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: The Ask -->
+    <section class="slide bg-gradient-to-br from-[#1E4F3A] to-[#16372a]">
+        <div class="max-w-4xl text-center">
+            <p class="text-[#F2B705] font-semibold mb-4">THE ASK</p>
+            <h2 class="text-5xl font-bold text-white mb-8">Let's Protect Kenya's SACCOs Together</h2>
+            
+            <div class="bg-white/10 p-12 rounded-3xl mb-12">
+                <p class="text-2xl text-white mb-8">We're looking for:</p>
+                <div class="grid grid-cols-3 gap-8 text-white">
+                    <div>
+                        <p class="text-4xl font-bold text-[#F2B705] mb-2">Pilots</p>
+                        <p>SACCOs to test with</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold text-[#F2B705] mb-2">Partners</p>
+                        <p>SASRA, banking partners</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold text-[#F2B705] mb-2">Investment</p>
+                        <p>To scale operations</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <p class="text-2xl text-white font-semibold">Contact Us</p>
+                <p class="text-xl text-[#F2B705]">hello@saccoguard.co.ke</p>
+                <p class="text-xl text-white/80">+254 700 000 000</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Thank You -->
+    <section class="slide bg-white">
+        <div class="text-center">
+            <div class="w-24 h-24 bg-[#1E4F3A] rounded-3xl flex items-center justify-center mx-auto mb-8">
+                <svg class="w-14 h-14 text-[#F2B705]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+            </div>
+            <h1 class="text-5xl font-bold text-[#1E4F3A] mb-4">Thank You</h1>
+            <p class="text-2xl text-gray-600 mb-8">Let's make SACCOs safer, together.</p>
+            <div class="inline-flex items-center gap-4 text-[#1E4F3A]">
+                <span class="font-semibold">SACCO Guard</span>
+                <span>•</span>
+                <span>hello@saccoguard.co.ke</span>
+                <span>•</span>
+                <span>Made in Kenya 🇰🇪</span>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

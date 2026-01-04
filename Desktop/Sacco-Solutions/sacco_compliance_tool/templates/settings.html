@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+{% block title %}Settings - SACCO Guard{% endblock %}
+{% block content %}
+<div class="min-h-screen">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-100 z-50 shadow-sm">
+        <div class="p-6 border-b border-gray-100">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-heritage-700 rounded-xl flex items-center justify-center shadow-lg">
+                    <i data-lucide="shield-check" class="w-7 h-7 text-gold-400"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-heritage-700 text-lg">SACCO Guard</h1>
+                    <p class="text-xs text-gray-500">Fraud Detection</p>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="mt-6 px-4">
+            <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Main Menu</p>
+            <a href="{{ url_for('dashboard_view') }}" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg mb-2">
+                <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                <span class="font-medium">Dashboard</span>
+            </a>
+            <a href="{{ url_for('upload_page') }}" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg mb-2">
+                <i data-lucide="upload" class="w-5 h-5"></i>
+                <span class="font-medium">Upload Data</span>
+            </a>
+            <a href="{{ url_for('reports_page') }}" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg mb-2">
+                <i data-lucide="file-text" class="w-5 h-5"></i>
+                <span class="font-medium">Reports</span>
+            </a>
+            <a href="{{ url_for('settings_page') }}" class="sidebar-link active flex items-center gap-3 px-4 py-3 text-heritage-700 rounded-lg mb-2">
+                <i data-lucide="settings" class="w-5 h-5"></i>
+                <span class="font-medium">Settings</span>
+            </a>
+        </nav>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-100 bg-heritage-50">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-heritage-700 rounded-full flex items-center justify-center">
+                    <i data-lucide="user" class="w-5 h-5 text-gold-400"></i>
+                </div>
+                <div>
+                    <p class="font-medium text-heritage-700">{{ session.get('username', 'User') }}</p>
+                    <p class="text-xs text-gray-500">Compliance Officer</p>
+                </div>
+            </div>
+            <a href="{{ url_for('logout') }}" class="flex items-center gap-2 text-red-600 hover:text-red-700 text-sm font-medium">
+                <i data-lucide="log-out" class="w-4 h-4"></i>
+                Sign Out
+            </a>
+        </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="ml-64 p-8 bg-gray-50 min-h-screen">
+        <div class="mb-8">
+            <h1 class="text-2xl font-bold text-heritage-700">Settings</h1>
+            <p class="text-gray-500">Configure alerts and notifications</p>
+        </div>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="mb-6 p-4 rounded-lg gold-accent {% if category == 'error' %}bg-red-100 text-red-700{% else %}bg-heritage-100 text-heritage-700{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- SMS Alerts -->
+            <div class="bg-white rounded-xl card-shadow p-8">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 bg-heritage-100 rounded-2xl flex items-center justify-center">
+                        <i data-lucide="smartphone" class="w-7 h-7 text-heritage-700"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-semibold text-heritage-700">SMS Alerts</h2>
+                        <p class="text-gray-500 text-sm">Get notified when fraud is detected</p>
+                    </div>
+                </div>
+                
+                <form action="{{ url_for('settings_page') }}" method="POST" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Alert Phone Number</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">+254</span>
+                            <input type="tel" name="alert_phone" 
+                                value="{{ session.get('alert_phone', '') }}"
+                                class="w-full pl-16 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-heritage-500 focus:border-heritage-500 outline-none"
+                                placeholder="7XX XXX XXX">
+                        </div>
+                        <p class="text-xs text-gray-400 mt-2">Enter your Kenyan mobile number for SMS alerts</p>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 p-4 bg-gold-50 rounded-lg">
+                        <i data-lucide="info" class="w-5 h-5 text-gold-600"></i>
+                        <p class="text-sm text-gold-700">SMS alerts require Africa's Talking API key. Contact support to enable.</p>
+                    </div>
+                    
+                    <button type="submit" class="w-full btn-primary text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2">
+                        <i data-lucide="save" class="w-5 h-5"></i>
+                        Save Settings
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Email Notifications -->
+            <div class="bg-white rounded-xl card-shadow p-8">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 bg-gold-100 rounded-2xl flex items-center justify-center">
+                        <i data-lucide="bell" class="w-7 h-7 text-gold-600"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-semibold text-heritage-700">Notification Preferences</h2>
+                        <p class="text-gray-500 text-sm">Choose what alerts you receive</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <label class="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-red-500"></i>
+                            <div>
+                                <p class="font-medium text-gray-800">High Risk Alerts</p>
+                                <p class="text-sm text-gray-500">Immediate notification for high-risk transactions</p>
+                            </div>
+                        </div>
+                        <input type="checkbox" checked class="w-5 h-5 text-heritage-600 rounded focus:ring-heritage-500">
+                    </label>
+                    
+                    <label class="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="file-text" class="w-5 h-5 text-heritage-600"></i>
+                            <div>
+                                <p class="font-medium text-gray-800">Daily Summary</p>
+                                <p class="text-sm text-gray-500">Daily report of all flagged transactions</p>
+                            </div>
+                        </div>
+                        <input type="checkbox" checked class="w-5 h-5 text-heritage-600 rounded focus:ring-heritage-500">
+                    </label>
+                    
+                    <label class="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-gold-500"></i>
+                            <div>
+                                <p class="font-medium text-gray-800">Weekly Analytics</p>
+                                <p class="text-sm text-gray-500">Weekly fraud trend analysis report</p>
+                            </div>
+                        </div>
+                        <input type="checkbox" class="w-5 h-5 text-heritage-600 rounded focus:ring-heritage-500">
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- API Integration -->
+        <div class="mt-8 bg-white rounded-xl card-shadow p-8">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-14 h-14 bg-heritage-100 rounded-2xl flex items-center justify-center">
+                    <i data-lucide="code" class="w-7 h-7 text-heritage-700"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold text-heritage-700">API Integration</h2>
+                    <p class="text-gray-500 text-sm">Connect your SACCO system directly</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">API Endpoint</label>
+                    <div class="flex">
+                        <input type="text" readonly value="{{ request.host_url }}api/detect" 
+                            class="flex-1 px-4 py-3 bg-gray-100 border border-gray-300 rounded-l-lg text-gray-600 font-mono text-sm">
+                        <button onclick="copyToClipboard('{{ request.host_url }}api/detect')" 
+                            class="px-4 bg-heritage-700 text-white rounded-r-lg hover:bg-heritage-800 transition">
+                            <i data-lucide="copy" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Training Endpoint</label>
+                    <div class="flex">
+                        <input type="text" readonly value="{{ request.host_url }}api/train" 
+                            class="flex-1 px-4 py-3 bg-gray-100 border border-gray-300 rounded-l-lg text-gray-600 font-mono text-sm">
+                        <button onclick="copyToClipboard('{{ request.host_url }}api/train')" 
+                            class="px-4 bg-heritage-700 text-white rounded-r-lg hover:bg-heritage-800 transition">
+                            <i data-lucide="copy" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 p-4 bg-heritage-50 rounded-lg">
+                <h4 class="font-medium text-heritage-700 mb-2">Example Usage:</h4>
+                <pre class="bg-heritage-800 text-heritage-100 p-4 rounded-lg text-sm overflow-x-auto"><code>curl -X POST {{ request.host_url }}api/detect \
+  -F "file=@transactions.csv"</code></pre>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        alert('Copied to clipboard!');
+    });
+}
+</script>
+{% endblock %}

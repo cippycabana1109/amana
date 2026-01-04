@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vimbatech - AI-Powered SACCO Fraud Detection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1E4F3A 0%, #2a6651 50%, #1a4232 100%);
+        }
+        .gradient-gold {
+            background: linear-gradient(135deg, #F2B705 0%, #d4a005 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 40px rgba(30, 79, 58, 0.1);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-heritage-100 rounded-xl flex items-center justify-center">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-heritage-700"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-heritage-700 text-xl">Vimbatech</h1>
+                        <p class="text-xs text-gray-500">Fraud Detection</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="#features" class="text-gray-600 hover:text-heritage-700 transition">Features</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-heritage-700 transition">Pricing</a>
+                    <a href="#contact" class="text-gray-600 hover:text-heritage-700 transition">Contact</a>
+                    <a href="/signup" class="btn-gold px-6 py-2 rounded-lg font-semibold text-heritage-700">
+                        Get Started - KES 15,000
+                    </a>
+                </nav>
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        Protect Your SACCO with AI-Powered Fraud Detection
+                    </h2>
+                    <p class="text-xl mb-8 text-heritage-100">
+                        Advanced machine learning algorithms detect suspicious transactions in real-time, 
+                        saving your SACCO from financial losses and maintaining member trust.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="/signup" class="gradient-gold text-heritage-700 px-8 py-4 rounded-lg font-bold text-center hover-scale">
+                            Start Free Trial
+                        </a>
+                        <a href="#demo" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-center hover:bg-white hover:text-heritage-700 transition">
+                            View Demo
+                        </a>
+                    </div>
+                    <div class="mt-8 flex items-center gap-6 text-sm">
+                        <span class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-gold-400"></i>
+                            14-day free trial
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-gold-400"></i>
+                            No setup fees
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-gold-400"></i>
+                            Cancel anytime
+                        </span>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 card-shadow">
+                        <div class="space-y-4">
+                            <div class="bg-white/20 rounded-lg p-4">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm">Fraud Detection Accuracy</span>
+                                    <span class="font-bold">98.5%</span>
+                                </div>
+                            </div>
+                            <div class="bg-white/20 rounded-lg p-4">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm">Response Time</span>
+                                    <span class="font-bold">&lt; 1 second</span>
+                                </div>
+                            </div>
+                            <div class="bg-white/20 rounded-lg p-4">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm">SACCOs Protected</span>
+                                    <span class="font-bold">50+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-bold text-heritage-700 mb-4">Why Choose Vimbatech?</h3>
+                <p class="text-xl text-gray-600">Industry-leading features designed for Kenyan SACCOs</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 card-shadow hover-scale">
+                    <div class="w-16 h-16 bg-heritage-100 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="brain" class="w-8 h-8 text-heritage-700"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-heritage-700 mb-4">AI-Powered Detection</h4>
+                    <p class="text-gray-600 mb-4">
+                        Advanced machine learning algorithms analyze transaction patterns to identify 
+                        suspicious activities with 98.5% accuracy.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            Real-time analysis
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            Pattern recognition
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            Risk scoring
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 card-shadow hover-scale">
+                    <div class="w-16 h-16 bg-gold-100 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="smartphone" class="w-8 h-8 text-gold-600"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-heritage-700 mb-4">Instant SMS Alerts</h4>
+                    <p class="text-gray-600 mb-4">
+                        Get notified immediately when suspicious transactions are detected. 
+                        Take action before fraud impacts your SACCO.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            Real-time notifications
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            Multiple recipients
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            Custom alert rules
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 card-shadow hover-scale">
+                    <div class="w-16 h-16 bg-heritage-100 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="file-text" class="w-8 h-8 text-heritage-700"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-heritage-700 mb-4">Compliance Reports</h4>
+                    <p class="text-gray-600 mb-4">
+                        Generate comprehensive compliance reports for auditors and management. 
+                        Export in PDF, CSV, or email formats.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            Automated reports
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            Custom schedules
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            Audit trails
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-heritage-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-bold text-heritage-700 mb-4">Simple, Transparent Pricing</h3>
+                <p class="text-xl text-gray-600">Start with a 14-day free trial, no credit card required</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl card-shadow p-8 border-2 border-gold-400">
+                    <div class="text-center mb-8">
+                        <h4 class="text-2xl font-bold text-heritage-700 mb-2">Starter Plan</h4>
+                        <p class="text-gray-600 mb-4">Perfect for small to medium SACCOs</p>
+                        <div class="text-5xl font-bold text-heritage-700 mb-2">
+                            KES 15,000<span class="text-xl text-gray-500">/month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h5 class="font-semibold text-heritage-700 mb-4">Features Included:</h5>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                                    <span>AI fraud detection engine</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                                    <span>Real-time transaction monitoring</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                                    <span>SMS alerts for suspicious transactions</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                                    <span>Compliance reporting dashboard</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                                    <span>Up to 10,000 transactions/month</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-heritage-700 mb-4">Support & Security:</h5>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                                    <span>24/7 email support</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                                    <span>Phone support (9am-5pm)</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                                    <span>256-bit SSL encryption</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                                    <span>Daily data backups</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                                    <span>GDPR compliant</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="/signup" class="gradient-gold text-heritage-700 px-8 py-4 rounded-lg font-bold text-center hover-scale inline-block">
+                            Start 14-Day Free Trial
+                        </a>
+                        <p class="text-sm text-gray-500 mt-4">No setup fees • Cancel anytime • Full access during trial</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-bold text-heritage-700 mb-4">Get in Touch</h3>
+                <p class="text-xl text-gray-600">Have questions? We're here to help</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-heritage-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="phone" class="w-8 h-8 text-heritage-700"></i>
+                    </div>
+                    <h4 class="font-semibold text-heritage-700 mb-2">Phone</h4>
+                    <p class="text-gray-600">0707 373 042</p>
+                    <p class="text-sm text-gray-500">Mon-Fri, 9am-5pm</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gold-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="mail" class="w-8 h-8 text-gold-600"></i>
+                    </div>
+                    <h4 class="font-semibold text-heritage-700 mb-2">Email</h4>
+                    <p class="text-gray-600">help@vimbatech.co.ke</p>
+                    <p class="text-sm text-gray-500">24/7 support</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-heritage-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="map-pin" class="w-8 h-8 text-heritage-700"></i>
+                    </div>
+                    <h4 class="font-semibold text-heritage-700 mb-2">Office</h4>
+                    <p class="text-gray-600">Nairobi, Kenya</p>
+                    <p class="text-sm text-gray-500">By appointment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-heritage-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-heritage-100 rounded-xl flex items-center justify-center">
+                            <i data-lucide="shield-check" class="w-6 h-6 text-heritage-700"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-white">Vimbatech</h5>
+                            <p class="text-xs text-heritage-300">Fraud Detection</p>
+                        </div>
+                    </div>
+                    <p class="text-heritage-300 text-sm">
+                        Protecting Kenyan SACCOs with advanced AI-powered fraud detection technology.
+                    </p>
+                </div>
+                
+                <div>
+                    <h6 class="font-semibold mb-4">Product</h6>
+                    <ul class="space-y-2 text-heritage-300 text-sm">
+                        <li><a href="#features" class="hover:text-white transition">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
+                        <li><a href="/signup" class="hover:text-white transition">Free Trial</a></li>
+                        <li><a href="/login" class="hover:text-white transition">Login</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h6 class="font-semibold mb-4">Company</h6>
+                    <ul class="space-y-2 text-heritage-300 text-sm">
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h6 class="font-semibold mb-4">Connect</h6>
+                    <ul class="space-y-2 text-heritage-300 text-sm">
+                        <li>Phone: 0707 373 042</li>
+                        <li>Email: help@vimbatech.co.ke</li>
+                        <li>Web: www.vimbatech.co.ke</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-heritage-700 mt-8 pt-8 text-center text-heritage-400 text-sm">
+                <p>&copy; 2024 Vimbatech. All rights reserved. | Protecting SACCOs across Kenya</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        function toggleMobileMenu() {
+            // Mobile menu toggle implementation
+            alert('Mobile menu would open here');
+        }
+    </script>
+</body>
+</html>

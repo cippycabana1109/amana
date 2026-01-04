@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Login - SACCO Compliance{% endblock %}
+{% block content %}
+<div class="min-h-screen flex items-center justify-center gradient-bg relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-20 left-20 w-64 h-64 bg-gold-400 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-20 w-96 h-96 bg-heritage-300 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="bg-white rounded-2xl card-shadow p-8 w-full max-w-md mx-4 relative z-10">
+        <!-- Gold accent bar -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-400 rounded-t-2xl"></div>
+        
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-heritage-100 rounded-2xl mb-4 shadow-lg">
+                <i data-lucide="shield-check" class="w-10 h-10 text-heritage-700"></i>
+            </div>
+            <h1 class="text-4xl font-bold text-heritage-700 mb-2">Vimbatech</h1>
+            <p class="text-xl text-gray-600">Fraud Detection System</p>
+        </div>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="mb-4 p-4 rounded-lg {% if category == 'error' %}bg-red-100 text-red-700{% else %}bg-heritage-100 text-heritage-700{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form method="POST" action="{{ url_for('login') }}" class="space-y-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                <div class="relative">
+                    <i data-lucide="user" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                    <input type="text" name="username" required
+                        class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-heritage-500 focus:border-heritage-500 outline-none transition"
+                        placeholder="Enter username">
+                </div>
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                <div class="relative">
+                    <i data-lucide="lock" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                    <input type="password" name="password" required
+                        class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-heritage-500 focus:border-heritage-500 outline-none transition"
+                        placeholder="Enter password">
+                </div>
+            </div>
+            
+            <button type="submit"
+                class="w-full btn-primary text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 shadow-lg">
+                <i data-lucide="log-in" class="w-5 h-5"></i>
+                Sign In
+            </button>
+        </form>
+        
+        <div class="mt-6 pt-6 border-t border-gray-200">
+            <p class="text-center text-gray-500 text-sm">
+                Demo credentials: <span class="font-medium text-heritage-700">admin</span> / <span class="font-medium text-heritage-700">admin123</span>
+            </p>
+        </div>
+        
+        <!-- Trust badges -->
+        <div class="mt-6 flex items-center justify-center gap-4 text-xs text-gray-400">
+            <span class="flex items-center gap-1">
+                <i data-lucide="lock" class="w-3 h-3"></i>
+                Secure Login
+            </span>
+            <span class="flex items-center gap-1">
+                <i data-lucide="shield" class="w-3 h-3"></i>
+                256-bit SSL
+            </span>
+        </div>
+    </div>
+</div>
+{% endblock %}
